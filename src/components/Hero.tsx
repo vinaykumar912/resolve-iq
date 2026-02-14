@@ -2,7 +2,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="bg-[#040a0e] py-20 min-h-[80vh] flex items-center"
+      className="bg-[#0b3d4f] py-20 min-h-[80vh] flex items-center"
     >
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">

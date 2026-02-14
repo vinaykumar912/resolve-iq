@@ -2,7 +2,7 @@ import Logo from "../assets/resolveIQ.jpeg";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#00AAFF] text-white py-12">
+    <footer className="bg-[#0b3d4f] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10">
         <div>
           <img src={Logo} alt="logo" className="h-9 mb-3" />

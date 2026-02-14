@@ -5,7 +5,7 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-[#040a0e] shadow sticky top-0 z-50">
+    <nav className="bg-[#0b3d4f] shadow sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
