@@ -1,92 +1,68 @@
-import { motion } from "framer-motion";
-import Logo from "../assets/resolveIQ.jpeg";
+import { Linkedin } from "lucide-react";
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <footer className="bg-[#0b3d4f] text-white py-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10">
-        {/* Brand */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <motion.img
-            src={Logo}
-            alt="logo"
-            className="h-9 mb-3"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            whileHover={{ scale: 1.05 }}
-          />
-          <p className="text-sm text-gray-200">
-            Building reliable data platforms, cloud solutions, and enterprise
-            applications.
-          </p>
-        </motion.div>
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Top Grid */}
+        <div className="grid md:grid-cols-4 gap-10">
+          {/* Logo + Description */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">
+              Resolve<span className="text-sky-500">IQ</span>
+            </h2>
 
-        {/* Quick Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <h4 className="font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2 text-sm text-gray-200">
-            <motion.li whileHover={{ x: 4 }}>
-              <a href="#home" className="hover:text-white transition">
-                Home
-              </a>
-            </motion.li>
-            <motion.li whileHover={{ x: 4 }}>
-              <a href="#services" className="hover:text-white transition">
-                Services
-              </a>
-            </motion.li>
-            {/* <motion.li whileHover={{ x: 4 }}>
-              <a href="#about" className="hover:text-white transition">
-                About
-              </a>
-            </motion.li>
-            <motion.li whileHover={{ x: 4 }}>
-              <a href="#contact" className="hover:text-white transition">
-                Contact
-              </a>
-            </motion.li> */}
-          </ul>
-        </motion.div>
+            <p className="text-gray-500 leading-relaxed">
+              We help mid-sized enterprises modernize data infrastructure in 90
+              days with measurable ROI.
+            </p>
+          </div>
 
-        {/* Contact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-        >
-          <h4 className="font-semibold mb-3">Contact</h4>
-          <p className="text-sm text-gray-200 hover:text-white transition">
-            Info@resolveiq.in
-          </p>
-          {/* <p className="text-sm text-gray-200 hover:text-white transition">
-            +91 98765 43210
-          </p> */}
-        </motion.div>
+          {/* Services */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Services</h3>
+
+            <ul className="space-y-3 text-gray-500">
+              <li>Data Engineering</li>
+              <li>Cloud Strategy & Migration</li>
+              <li>QA & Automation</li>
+              <li>Enterprise Applications</li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
+
+            <ul className="space-y-3 text-gray-500">
+              <li>About Us</li>
+              <li>Our Process</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
+
+            <ul className="space-y-3 text-gray-500">
+              <li>contact@resolveiq.com</li>
+
+              <li className="flex items-center gap-2">
+                <Linkedin size={18} />
+                LinkedIn
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 mt-12 pt-6 text-center text-gray-500 text-sm">
+          © 2026 Resolve IQ. All rights reserved.
+        </div>
       </div>
-
-      {/* Bottom bar */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="text-center text-xs text-gray-300 mt-10"
-      >
-        © {new Date().getFullYear()} Resolve IQ. All rights reserved.
-      </motion.div>
     </footer>
   );
 };
+
+export default Footer;

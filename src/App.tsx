@@ -1,15 +1,25 @@
 import "./App.css";
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
-import { Footer } from "./components/Footer";
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import WhyResolveIQ from "./components/WhyResolveIQ";
+import ServicesSection from "./components/ServicesSection";
+import WhatSetsUsApart from "./components/WhatSetsUsApart";
+import AboutSection from "./components/AboutSection";
+import ProcessSection from "./components/ProcessSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Services />
+      <HeroSection />
+      <WhyResolveIQ />
+      <ServicesSection />
+      <WhatSetsUsApart />
+      <AboutSection />
+      <ProcessSection />
+      <ContactSection />
       <Footer />
     </>
   );
