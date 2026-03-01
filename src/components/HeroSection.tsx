@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import heroImage from "../assets/mainbanner-4.webp";
 
 const HeroSection = () => {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="w-full bg-gray-50 py-20">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -38,6 +43,7 @@ const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
               className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-400 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:opacity-90 transition"
             >
               Book a Free 30-Minute Consultation →
@@ -46,6 +52,7 @@ const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
               className="flex items-center gap-2 border-2 border-blue-500 text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition"
             >
               📞 Talk to Our Experts

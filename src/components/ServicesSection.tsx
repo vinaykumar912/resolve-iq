@@ -40,8 +40,13 @@ const cardVariants = {
 };
 
 const ServicesSection = () => {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="services" className="bg-gray-50 py-24">
+    <section id="services" className="bg-gray-50 py-13">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -101,6 +106,7 @@ const ServicesSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={scrollToContact}
                   className="text-blue-600 border border-blue-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition"
                 >
                   Schedule a Strategy Call →

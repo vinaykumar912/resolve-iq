@@ -9,6 +9,11 @@ const Navbar = () => {
     { name: "Contact", id: "contact" },
   ];
 
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -48,6 +53,7 @@ const Navbar = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={scrollToContact}
           className="text-[14px] font-semibold bg-gradient-to-r from-blue-500 to-teal-400 text-white px-5 py-2 rounded-lg shadow hover:opacity-90 transition"
         >
           Book a Consultation

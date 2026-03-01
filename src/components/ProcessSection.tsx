@@ -36,6 +36,11 @@ const cardVariants = {
 };
 
 const ProcessSection = () => {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="process" className="bg-gray-50 py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -75,10 +80,12 @@ const ProcessSection = () => {
                 transition={{ type: "spring", stiffness: 200 }}
                 className="relative bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-lg"
               >
-                <span className="absolute top-6 right-6 text-4xl font-bold text-gray-200">
+                {/* Light Blue Step Number */}
+                <span className="absolute top-6 right-6 text-6xl font-bold text-blue-200 tracking-wide">
                   {step.number}
                 </span>
 
+                {/* Icon */}
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   className="w-12 h-12 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-teal-400 text-white"
@@ -86,10 +93,12 @@ const ProcessSection = () => {
                   <Icon size={20} />
                 </motion.div>
 
+                {/* Title */}
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   {step.title}
                 </h3>
 
+                {/* Description */}
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {step.desc}
                 </p>
@@ -119,6 +128,7 @@ const ProcessSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
               className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold shadow hover:opacity-90 transition"
             >
               Book a Free Consultation →
@@ -127,6 +137,7 @@ const ProcessSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={scrollToContact}
               className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition"
             >
               Schedule Your Call Now

@@ -31,7 +31,7 @@ const ContactSection = () => {
             className="flex items-center gap-3 text-gray-600 mb-6"
           >
             <Mail className="text-blue-500" size={20} />
-            contact@resolveiq.com
+            Info@resolveiq.in
           </motion.div>
 
           {/* Quick Inquiry Button */}

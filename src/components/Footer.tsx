@@ -17,6 +17,11 @@ const itemVariants = {
 };
 
 const Footer = () => {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <motion.footer
       className="bg-gray-50 border-t border-gray-200"
@@ -51,20 +56,37 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-4">Services</h3>
 
             <ul className="space-y-3 text-gray-500">
-              {[
-                "Data Engineering",
-                "Cloud Strategy & Migration",
-                "QA & Automation",
-                "Enterprise Applications",
-              ].map((item) => (
-                <motion.li
-                  key={item}
-                  whileHover={{ x: 5 }}
-                  className="cursor-pointer"
-                >
-                  {item}
-                </motion.li>
-              ))}
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("services")}
+                className="cursor-pointer"
+              >
+                Data Engineering
+              </motion.li>
+
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("services")}
+                className="cursor-pointer"
+              >
+                Cloud Strategy & Migration
+              </motion.li>
+
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("services")}
+                className="cursor-pointer"
+              >
+                QA & Automation
+              </motion.li>
+
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("services")}
+                className="cursor-pointer"
+              >
+                Enterprise Applications
+              </motion.li>
             </ul>
           </motion.div>
 
@@ -73,15 +95,29 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
 
             <ul className="space-y-3 text-gray-500">
-              {["About Us", "Our Process", "Contact"].map((item) => (
-                <motion.li
-                  key={item}
-                  whileHover={{ x: 5 }}
-                  className="cursor-pointer"
-                >
-                  {item}
-                </motion.li>
-              ))}
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("about")}
+                className="cursor-pointer"
+              >
+                About Us
+              </motion.li>
+
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("process")}
+                className="cursor-pointer"
+              >
+                Our Process
+              </motion.li>
+
+              <motion.li
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection("contact")}
+                className="cursor-pointer"
+              >
+                Contact
+              </motion.li>
             </ul>
           </motion.div>
 
@@ -90,7 +126,7 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
 
             <ul className="space-y-3 text-gray-500">
-              <li>contact@resolveiq.com</li>
+              <li>Info@resolveiq.in</li>
 
               <motion.li
                 whileHover={{ scale: 1.05 }}
