@@ -1,13 +1,41 @@
 import { Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <motion.footer
+      className="bg-gray-50 border-t border-gray-200"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Top Grid */}
-        <div className="grid md:grid-cols-4 gap-10">
+        <motion.div
+          className="grid md:grid-cols-4 gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* Logo + Description */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h2 className="text-xl font-bold mb-4">
               Resolve<span className="text-sky-500">IQ</span>
             </h2>
@@ -16,52 +44,77 @@ const Footer = () => {
               We help mid-sized enterprises modernize data infrastructure in 90
               days with measurable ROI.
             </p>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h3 className="font-semibold text-gray-900 mb-4">Services</h3>
 
             <ul className="space-y-3 text-gray-500">
-              <li>Data Engineering</li>
-              <li>Cloud Strategy & Migration</li>
-              <li>QA & Automation</li>
-              <li>Enterprise Applications</li>
+              {[
+                "Data Engineering",
+                "Cloud Strategy & Migration",
+                "QA & Automation",
+                "Enterprise Applications",
+              ].map((item) => (
+                <motion.li
+                  key={item}
+                  whileHover={{ x: 5 }}
+                  className="cursor-pointer"
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Company */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
 
             <ul className="space-y-3 text-gray-500">
-              <li>About Us</li>
-              <li>Our Process</li>
-              <li>Contact</li>
+              {["About Us", "Our Process", "Contact"].map((item) => (
+                <motion.li
+                  key={item}
+                  whileHover={{ x: 5 }}
+                  className="cursor-pointer"
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Connect */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
 
             <ul className="space-y-3 text-gray-500">
               <li>contact@resolveiq.com</li>
 
-              <li className="flex items-center gap-2">
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 cursor-pointer"
+              >
                 <Linkedin size={18} />
                 LinkedIn
-              </li>
+              </motion.li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Divider */}
-        <div className="border-t border-gray-200 mt-12 pt-6 text-center text-gray-500 text-sm">
+        <motion.div
+          className="border-t border-gray-200 mt-12 pt-6 text-center text-gray-500 text-sm"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           © 2026 Resolve IQ. All rights reserved.
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

@@ -1,4 +1,5 @@
 import { Search, Wrench, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -21,12 +22,31 @@ const steps = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const ProcessSection = () => {
   return (
     <section id="process" className="bg-gray-50 py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p className="text-blue-600 text-sm font-semibold tracking-widest mb-4">
             OUR PROCESS
           </p>
@@ -34,25 +54,37 @@ const ProcessSection = () => {
           <h2 className="text-4xl font-bold text-gray-900">
             From Assessment to Impact in 90 Days
           </h2>
-        </div>
+        </motion.div>
 
         {/* Process Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8 mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {steps.map((step, index) => {
             const Icon = step.icon;
 
             return (
-              <div
+              <motion.div
                 key={index}
-                className="relative bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm"
+                variants={cardVariants}
+                whileHover={{ y: -10, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="relative bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-lg"
               >
                 <span className="absolute top-6 right-6 text-4xl font-bold text-gray-200">
                   {step.number}
                 </span>
 
-                <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center rounded-full bg-linear-to-r from-blue-500 to-teal-400 text-white">
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  className="w-12 h-12 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-teal-400 text-white"
+                >
                   <Icon size={20} />
-                </div>
+                </motion.div>
 
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   {step.title}
@@ -61,13 +93,19 @@ const ProcessSection = () => {
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {step.desc}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-teal-400 rounded-2xl text-center py-16 px-8 text-white">
+        <motion.div
+          className="bg-gradient-to-r from-blue-600 to-teal-400 rounded-2xl text-center py-16 px-8 text-white"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-3xl font-bold mb-4">
             Let's Solve What's Slowing You Down
           </h3>
@@ -78,15 +116,23 @@ const ProcessSection = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold shadow hover:opacity-90 transition">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold shadow hover:opacity-90 transition"
+            >
               Book a Free Consultation →
-            </button>
+            </motion.button>
 
-            <button className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition"
+            >
               Schedule Your Call Now
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { TrendingUp, Shield, Zap, Clock, BarChart3 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -28,12 +29,33 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const WhyResolveIQ = () => {
   return (
     <section className="bg-gray-50 py-24" id="why-us">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p className="text-blue-600 font-semibold tracking-widest text-sm mb-4">
             WHY RESOLVE IQ
           </p>
@@ -46,22 +68,34 @@ const WhyResolveIQ = () => {
             We don't just deliver technology — we deliver outcomes that move the
             needle for your business.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {features.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
+                variants={cardVariants}
+                whileHover={{ y: -8, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-linear-to-r from-blue-500 to-teal-400 text-white mb-6">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-teal-400 text-white mb-6"
+                >
                   <Icon size={22} />
-                </div>
+                </motion.div>
 
                 {/* Title */}
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
@@ -72,10 +106,10 @@ const WhyResolveIQ = () => {
                 <p className="text-gray-500 leading-relaxed text-sm">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

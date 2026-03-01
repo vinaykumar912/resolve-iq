@@ -1,11 +1,17 @@
 import { Mail, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   return (
     <section id="contact" className="bg-gray-50 py-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <p className="text-blue-600 font-semibold tracking-widest text-sm mb-4">
             GET IN TOUCH
           </p>
@@ -20,23 +26,40 @@ const ContactSection = () => {
           </p>
 
           {/* Email */}
-          <div className="flex items-center gap-3 text-gray-600 mb-6">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-3 text-gray-600 mb-6"
+          >
             <Mail className="text-blue-500" size={20} />
             contact@resolveiq.com
-          </div>
+          </motion.div>
 
           {/* Quick Inquiry Button */}
-          <button className="flex items-center gap-2 border border-blue-500 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 border border-blue-500 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition"
+          >
             <MessageCircle size={18} />
             Quick Inquiry
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* Form */}
-        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
+        <motion.div
+          className="bg-white border border-gray-200 rounded-2xl shadow-sm p-8"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
           <form className="space-y-6">
             {/* Name */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
               <label className="block text-gray-700 font-medium mb-2">
                 Name
               </label>
@@ -45,10 +68,14 @@ const ContactSection = () => {
                 placeholder="Your full name"
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </motion.div>
 
             {/* Company */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               <label className="block text-gray-700 font-medium mb-2">
                 Company
               </label>
@@ -57,10 +84,14 @@ const ContactSection = () => {
                 placeholder="Company name"
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </motion.div>
 
             {/* Email */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
               <label className="block text-gray-700 font-medium mb-2">
                 Email
               </label>
@@ -69,10 +100,14 @@ const ContactSection = () => {
                 placeholder="work@company.com"
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </motion.div>
 
             {/* Message */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               <label className="block text-gray-700 font-medium mb-2">
                 Message
               </label>
@@ -81,17 +116,19 @@ const ContactSection = () => {
                 placeholder="Tell us about your project..."
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </motion.div>
 
             {/* Submit */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full bg-linear-to-r from-blue-600 to-teal-400 text-white font-semibold py-3 rounded-lg shadow hover:opacity-90 transition"
+              className="w-full bg-gradient-to-r from-blue-600 to-teal-400 text-white font-semibold py-3 rounded-lg shadow hover:opacity-90 transition"
             >
               Send Message →
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

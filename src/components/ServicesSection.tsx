@@ -1,4 +1,5 @@
 import { Database, Cloud, ShieldCheck, Code } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -23,12 +24,33 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const ServicesSection = () => {
   return (
     <section id="services" className="bg-gray-50 py-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p className="text-blue-600 font-semibold tracking-widest text-sm mb-4">
             OUR SERVICES
           </p>
@@ -36,22 +58,34 @@ const ServicesSection = () => {
           <h2 className="text-4xl font-bold text-gray-900">
             End-to-End Technology Solutions
           </h2>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition"
+                variants={cardVariants}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-lg transition"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-blue-600 mb-6">
+                <motion.div
+                  whileHover={{ scale: 1.15 }}
+                  className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-blue-600 mb-6"
+                >
                   <Icon size={24} />
-                </div>
+                </motion.div>
 
                 {/* Title */}
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -64,13 +98,17 @@ const ServicesSection = () => {
                 </p>
 
                 {/* Button */}
-                <button className="text-blue-600 border border-blue-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-blue-600 border border-blue-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition"
+                >
                   Schedule a Strategy Call →
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

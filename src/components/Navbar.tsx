@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   const navItems = [
     { name: "Services", id: "services" },
@@ -8,32 +10,50 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full bg-white shadow-sm"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-tight">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-2xl font-bold tracking-tight"
+        >
           Resolve<span className="text-sky-500">IQ</span>
-        </div>
+        </motion.div>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
+          {navItems.map((item, index) => (
+            <motion.a
               key={item.id}
               href={`#${item.id}`}
-              className="text-[15px] font-medium text-gray-600 hover:text-black transition duration-200"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+              whileHover={{ scale: 1.08 }}
+              className="text-[15px] font-medium text-gray-600 hover:text-black transition"
             >
               {item.name}
-            </a>
+            </motion.a>
           ))}
         </nav>
 
         {/* CTA Button */}
-        <button className="text-[14px] font-semibold bg-linear-to-r from-blue-500 to-teal-400 text-white px-5 py-2 rounded-lg shadow hover:opacity-90 transition">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="text-[14px] font-semibold bg-gradient-to-r from-blue-500 to-teal-400 text-white px-5 py-2 rounded-lg shadow hover:opacity-90 transition"
+        >
           Book a Consultation
-        </button>
+        </motion.button>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
