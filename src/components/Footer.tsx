@@ -126,7 +126,7 @@ const Footer = () => {
             <h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
 
             <ul className="space-y-3 text-gray-500">
-              <li>Info@resolveiq.in</li>
+              <li>contact@resolveiq.in</li>
 
               <motion.li
                 whileHover={{ scale: 1.05 }}
